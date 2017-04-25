@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="header">
+    <view class="info-wrapper">
+      <view class="bg" style="background-image: url(../../images/1.jpg)"></view>
+      <image src="../../images/1.jpg" class="cover"></image>
+      <view class="info">
+        <text>作者: {{comic.authors}}</text>
+        <text>类型: {{comic.types}}</text>
+        <text>状态: {{comic.finished ? '已完结' : '连载中'}}</text>
+        <text>最后更新: {{comic.update_time}}</text>
+        <view class="btn-group">
+          <view class="btn">收藏</view>
+          <view class="btn">开始阅读</view>
+        </view>
+      </view>
+    </view>
+    <view class="desc">
+      {{comic.description}}
+    </view>
+  </view>
+  <view class="chapters">
+    <view class="h3">漫画章节</view>
+    <view class="chapter">
+      <text class="cate">连载中</text>
+      <view class="eps">
+        <view class="ep">第1话第1话第1话第1话第1话第1话第1话</view>
+        <view class="ep">第2话</view>
+        <view class="ep">第3话</view>
+        <view class="ep">第4话</view>
+        <view class="ep">第5话</view>
+        <view class="ep">第6话</view>
+      </view>
+    </view>
+  </view>
+</view>

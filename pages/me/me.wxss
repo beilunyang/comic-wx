@@ -1,0 +1,102 @@
+.header {
+  background: url('../../images/1.jpg') no-repeat center center / cover;
+  height: 300rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.avatar {
+  height: 140rpx;
+  width: 140rpx;
+  border-radius: 50%;
+  border: 8rpx solid rgba(255, 255, 255, 0.6);
+}
+
+.nickname {
+  font-size: 28rpx;
+  margin: 20rpx 0;
+  color: #fff;
+}
+
+.records {
+  background-color: #fff;
+  margin: 30rpx 0;
+  color: #3d3d3d;
+}
+
+.record-content {
+  padding: 0 20rpx;
+  display: flex;
+}
+
+.record-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 10rpx;
+  margin: 0 30rpx;
+  font-size: 24rpx;
+  border-bottom: 2rpx solid #e6e6e6;
+}
+
+.record-item {
+  padding: 20rpx;
+  display: flex;
+  width: auto;
+  flex-direction: column;
+}
+
+.record-cover {
+  height: 180rpx;
+  width: 140rpx;
+  border-radius: 6rpx;
+}
+
+.record-title {
+  text-align: center;
+  font-size: 20rpx;
+  margin: 10rpx 0;
+}
+
+.collection {
+  background-color: #fff;
+  margin: 30rpx 0;
+  color: #3d3d3d;
+}
+
+.collection-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 10rpx;
+  margin: 0 30rpx;
+  font-size: 24rpx;
+}
+
+.num {
+  position: relative;
+  padding-right: 14rpx;
+}
+
+.num::after {
+  content: '';
+  position: absolute;
+  top: -4rpx;
+  left: 16rpx;
+  background: url('../../images/more.png') no-repeat;
+  background-size: cover;
+  height: 28rpx;
+  width: 28rpx;
+}

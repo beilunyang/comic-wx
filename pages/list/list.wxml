@@ -1,0 +1,9 @@
+<view class="container">
+  <view class="list">
+    <navigator url="../comic/comic?mid={{item.mid}}" class="item" wx:for="{{comics}}" wx:key="{{item.mid}}">
+      <image src="../../images/1.jpg" class="cover"></image>
+      <text class="title">{{item.title}}</text>
+      <text class="author">作者: {{item.authors}}</text>
+    </navigator>
+  </view>
+</view>

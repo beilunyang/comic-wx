@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="header">
+    <image src="../../images/2.jpeg" class="avatar"></image>
+    <text class="nickname">悖论</text>
+  </view>
+  <view class="records">
+    <view class="record-header">
+      <text>最近阅读</text>
+      <text class="num">4</text>
+    </view>
+    <view class="record-content">
+      <view class="record-item">
+        <image src="../../images/1.jpg" class="record-cover"></image>
+        <text class="record-title">第一次</text>
+      </view>
+    </view>
+  </view>
+  <view class="collection">
+    <view class="collection-header">
+      <text>我的收藏</text>
+      <text class="num">0</text>
+    </view>
+  </view>
+</view>

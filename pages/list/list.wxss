@@ -1,0 +1,37 @@
+.list {
+  padding: 0 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.item {
+  width: 200rpx;
+  margin: 15rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cover {
+  width: 200rpx;
+  height: 250rpx;
+  border-radius: 6rpx;
+}
+
+.title {
+  font-size: 22rpx;
+  margin-top: 12rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.author {
+  font-size: 20rpx;
+  color: darkgrey;
+  margin-top: 12rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

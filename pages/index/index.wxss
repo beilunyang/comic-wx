@@ -1,0 +1,60 @@
+.swiper-image {
+  width: 100%;
+}
+
+.theme {
+  display: block;
+}
+
+.theme-item {
+  margin: 30rpx 0;
+  background-color: #fff;
+  padding: 0 30rpx;
+}
+
+.theme-title {
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #9ac954;
+  padding: 20rpx 0;
+}
+
+.theme-title::before {
+  content: '';
+  display: block;
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: #9ac954;
+  margin-right: 10rpx;
+}
+
+.theme-content {
+  border-top: 2rpx solid #e6e6e6;
+  padding: 20rpx 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.theme-comic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15rpx;
+}
+
+.cover {
+  height: 250rpx;
+  width: 200rpx;
+  border-radius: 8rpx;
+}
+
+.comic-title {
+  color: #3d3d3d;
+  font-size: 24rpx;
+  margin: 14rpx 0;
+}
+
+

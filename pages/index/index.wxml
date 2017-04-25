@@ -1,0 +1,30 @@
+<view class="container">
+  <swiper indicator-dots="true" autoplay="true" interval="5000" duration="1000" circular="true" indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="#fff">
+    <swiper-item>
+      <image src="../../images/1.jpg" class="swiper-image"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="../../images/2.jpeg" class="swiper-image"></image>
+    </swiper-item>
+  </swiper>
+  <view class="theme">
+    <view class="theme-item" wx:for="{{themes}}" wx:key="{{item._id}}"> 
+      <text class="theme-title">{{item.title}}</text>
+      <view class="theme-content">
+        <view class="theme-comic">
+          <image src="../../images/1.jpg" class="cover"></image>
+          <text class="comic-title">驱魔少年</text>
+        </view>
+        <view class="theme-comic">
+          <image src="../../images/2.jpeg" class="cover"></image>
+          <text class="comic-title">美少女战士</text>
+        </view>
+         <view class="theme-comic">
+          <image src="../../images/2.jpeg" class="cover"></image>
+          <text class="comic-title">美少女战士</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

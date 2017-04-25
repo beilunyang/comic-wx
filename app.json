@@ -1,0 +1,50 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/cate/cate",
+    "pages/special/special",
+    "pages/me/me",
+    "pages/list/list",
+    "pages/comic/comic"
+  ],
+  "window":{
+    "backgroundColor": "#f5f5f5",
+    "backgroundTextStyle":"#fff",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "漫画",
+    "navigationBarTextStyle":"#fff",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./images/home.png",
+        "selectedIconPath": "./images/home1.png"
+      },
+      {
+        "pagePath": "pages/cate/cate",
+        "text": "分类",
+        "iconPath": "./images/book.png",
+        "selectedIconPath": "./images/book1.png"
+      },
+      {
+        "pagePath": "pages/special/special",
+        "text": "专题",
+        "iconPath": "./images/recommend.png",
+        "selectedIconPath": "./images/recommend1.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "个人中心",
+        "iconPath": "./images/user.png",
+        "selectedIconPath": "./images/user1.png"
+      }
+    ],
+    "backgroundColor": "#fafafa",
+    "selectedColor": "#9ac954",
+    "color": "#c1c1c1"
+  },
+  "debug": true
+}
