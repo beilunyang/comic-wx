@@ -15,7 +15,10 @@ Page({
         });
         return console.error(err.message);
       }
-      comics.forEach(v => v.authors = v.authors.join(' / '));
+      comics.forEach(v => {
+        v.authors = v.authors.join(' / ');
+        v.origin_cover = v.origin_cover.replace('http://images.dmzj.com', 'http://localhost:2333/cover');
+      });
       this.setData({
         comics: this.data.comics.concat(comics),
         page: this.data.page + 1,

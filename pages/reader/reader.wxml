@@ -1,0 +1,3 @@
+<scroll-view class="reader" scroll-y="true" bindscrolltolower="handleScrollToLower" lower-threshold="200">
+    <image src="{{item}}" wx:key="{{item}}" style=" height:{{readerHs[index]}};" wx:for="{{images}}" class="image"></image>
+</scroll-view>

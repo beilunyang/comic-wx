@@ -16,5 +16,6 @@ App({
   },
   globalData:{
     userInfo: null,
+    chapter: {},
   }
 })

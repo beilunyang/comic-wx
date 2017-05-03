@@ -1,21 +1,16 @@
-function formatTime(date) {
-  var year = date.getFullYear()
-  var month = date.getMonth() + 1
-  var day = date.getDate()
+export const WxPromisify = {
+  getImageInfo(src, cb) {
+    return new Promise((resolve, reject) => {
+      wx.getImageInfo({
+        src,
+        success(res) {
+          resolve(cb(res));
+        },
+        fail(res) {
+          reject();
+        },
+      });
+    });
+  },
+};
 
-  var hour = date.getHours()
-  var minute = date.getMinutes()
-  var second = date.getSeconds()
-
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-}
-
-function formatNumber(n) {
-  n = n.toString()
-  return n[1] ? n : '0' + n
-}
-
-module.exports = {
-  formatTime: formatTime
-}
