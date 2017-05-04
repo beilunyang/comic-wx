@@ -14,10 +14,11 @@ Page({
     let readerW = '';
     const images = app.globalData.chapter.images;
     const max = Math.floor(images.length / 5);
-    this.setData({ max, lock: true });
+    this.setData({ max });
     this.loadImages(0);
   },
   loadImages(i) {
+    this.setData({ lock: true });
     const images = app.globalData.chapter.images.slice(i * 5, ++i * 5);
     const ps = [];
     for (let k = 0; k < images.length; k++) {
@@ -47,7 +48,6 @@ Page({
       if (this.data.i > this.data.max) {
         return console.log('finished');
       }
-      this.setData({ lock: true });
       this.loadImages(this.data.i);
     }
   }

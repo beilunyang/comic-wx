@@ -1,11 +1,17 @@
 .list {
   padding: 0 30rpx;
+  /*
+  scroll-view中无效
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   align-items: center;
+  */
+  height: 100%;
 }
 
 .item {
+  float: left;
   width: 200rpx;
   margin: 15rpx;
   display: flex;

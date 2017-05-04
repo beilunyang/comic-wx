@@ -19,7 +19,7 @@ Page({
       comic.update_time = new Date(comic.update_time * 1000).toLocaleDateString();
       comic.authors = comic.authors.join('/');
       comic.types = comic.types.join('/');
-      comic.origin_cover = comic.origin_cover.replace('http://images.dmzj.com', 'http://localhost:2333/cover');
+      comic.origin_cover = 'http://localhost:2333/cover' + comic.origin_cover;
       this.setData({ comic, chapters: comic.chapters });
     });
   },
@@ -27,7 +27,7 @@ Page({
     const dataset = e.target.dataset;
     const chapter = this.data.chapters[dataset.cat][dataset.idx];
     const images = chapter.origin_images;
-    chapter.images = images.map((v) => v.replace('http://imgsmall.dmzj.com', 'http://localhost:2333'));
+    chapter.images = images.map(v => 'http://localhost:2333' + v);
     app.globalData.chapter = chapter;
   },
 })

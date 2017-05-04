@@ -1,9 +1,7 @@
-<view class="container">
-  <view class="list">
-    <navigator url="../comic/comic?mid={{item.mid}}" class="item" wx:for="{{comics}}" wx:key="{{item.mid}}">
+<scroll-view class="list" scroll-y="true" lower-threshold="100" bindscrolltolower="handleScrollToLower">
+    <navigator url="../comic/comic?mid={{item.mid}}" class="item" wx:for="{{comics}}" wx:key="{{item.mid}}" hover-class="">
       <image src="{{item.origin_cover}}" class="cover"></image>
       <text class="title">{{item.title}}</text>
       <text class="author">作者: {{item.authors}}</text>
     </navigator>
-  </view>
-</view>
+  </scroll-view>

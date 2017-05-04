@@ -2,10 +2,9 @@
     <form class="search-form">
         <input type="search" placeholder="输入漫画名|作者" class="search" />        
     </form>
-    
     <view class="cate">
-        <navigator url="../list/list?cate={{item.name}}" class="cate-item" wx:for="{{cates}}" wx:key="{{item._id}}">
-            <image src="../../images/1.jpg" class="cate-image"></image>
+        <navigator url="../list/list?cate={{item.name}}" class="cate-item" wx:for="{{cates}}" wx:key="{{item._id}}" hover-class="">
+            <image src="{{item.cover}}" class="cate-image" mode="aspectFill"></image>
             <text class="cate-title">{{item.name}}</text>
         </navigator>
     </view>
