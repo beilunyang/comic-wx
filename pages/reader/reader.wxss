@@ -1,3 +1,7 @@
+page {
+  position: relative;
+}
+
 .reader {
   background-color: #313131;
   height: 100%;
@@ -13,3 +17,39 @@
     height: 0;
     color: transparent;
 }
+
+.reader-header, .reader-footer {
+  position: fixed;
+  left: 0; right: 0;
+  background-color: rgba(0, 0, 0, .9);
+  display: flex;
+  align-items: center;
+  height: 0;
+  opacity: 0;
+  transition: all .3s ease;
+}
+
+.reader-header {
+  top: 0;
+}
+
+.show-header {
+  height: 60rpx;
+  opacity: 1;
+}
+
+.reader-footer {
+  bottom: 0;
+  justify-content: space-around;
+}
+
+.show-footer {
+  height: 90rpx;
+  opacity: 1;
+}
+
+.footer-icon {
+  height: 50rpx;
+  width: 50rpx;
+}
+

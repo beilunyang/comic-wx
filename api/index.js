@@ -31,4 +31,8 @@ export const getComic = (id, cb) => {
 
 export const getThemes = (cb) => {
     _get(`${BASE_URL}/comic/theme`, cb);
-}
+};
+
+export const search = (keyword, page, cb) => {
+    _get(`${BASE_URL}/comic/search/${keyword}/page/${page}`, cb);
+};

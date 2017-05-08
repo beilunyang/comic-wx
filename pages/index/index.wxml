@@ -9,20 +9,15 @@
   </swiper>
   <view class="theme">
     <view class="theme-item" wx:for="{{themes}}" wx:key="{{item._id}}"> 
-      <text class="theme-title">{{item.title}}</text>
+      <view class="theme-title">
+        <image src="../../images/icon.svg" class="icon"></image>
+        {{item.title}}
+      </view>
       <view class="theme-content">
-        <view class="theme-comic">
-          <image src="../../images/1.jpg" class="cover"></image>
-          <text class="comic-title">驱魔少年</text>
-        </view>
-        <view class="theme-comic">
-          <image src="../../images/2.jpeg" class="cover"></image>
-          <text class="comic-title">美少女战士</text>
-        </view>
-         <view class="theme-comic">
-          <image src="../../images/2.jpeg" class="cover"></image>
-          <text class="comic-title">美少女战士</text>
-        </view>
+         <navigator url="/pages/comic/comic?mid={{comic.mid}}" hover-class="" class="theme-comic" wx:for="{{item.comics}}" wx:key="{{comic.mid}}" wx:for-item="comic">
+          <image src="{{comic.origin_cover}}" class="cover" mode="aspectFill"></image>
+          <text class="comic-title">{{comic.title}}</text>
+        </navigator>
       </view>
     </view>
   </view>

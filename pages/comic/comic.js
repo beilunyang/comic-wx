@@ -6,6 +6,9 @@ Page({
   data: {
     comic: {},
     chapters: [],
+    descH: '58rpx',
+    rotateX: 0,
+    down: true,
   },
   onLoad: function (options) {
     getComic(options.mid, (err, comic) => {
@@ -16,6 +19,9 @@ Page({
         });
         return console.error(err.message);
       }
+      wx.setNavigationBarTitle({
+        title: comic.title,
+      });
       comic.update_time = new Date(comic.update_time * 1000).toLocaleDateString();
       comic.authors = comic.authors.join('/');
       comic.types = comic.types.join('/');
@@ -30,4 +36,31 @@ Page({
     chapter.images = images.map(v => 'http://localhost:2333' + v);
     app.globalData.chapter = chapter;
   },
-})
+  more() {
+    if (this.data.descH === '58rpx') {
+      this.setData({
+        descH: 'auto',
+        rotateX: '180deg',
+      });
+    } else {
+      this.setData({
+        descH: '58rpx',
+        rotateX: '0deg',
+      });
+    }
+  },
+  sort() {
+    const chapters = this.data.chapters.map(v => v.reverse());
+    if (this.data.down) {
+      this.setData({
+        down: false,
+        chapters,
+      });
+    } else {
+      this.setData({
+        down: true,
+        chapters,
+      });
+    }
+  },
+});

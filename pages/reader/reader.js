@@ -9,11 +9,16 @@ Page({
     i: 0,
     max: 0,
     lock: false,
+    show: false,
   },
   onLoad() {
     let readerW = '';
-    const images = app.globalData.chapter.images;
+    const chapter = app.globalData.chapter;
+    const images = chapter.images;
     const max = Math.floor(images.length / 5);
+    wx.setNavigationBarTitle({
+      title: chapter.title,
+    });
     this.setData({ max });
     this.loadImages(0);
   },
@@ -50,5 +55,11 @@ Page({
       }
       this.loadImages(this.data.i);
     }
-  }
+  },
+  changeReader() {
+    console.log('exe');
+    this.setData({
+      show: !this.data.show,
+    });
+  },
 });

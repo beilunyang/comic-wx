@@ -1,15 +1,20 @@
-import { getCateComicList } from '../../api/index';
+import { getCateComicList, search } from '../../api/index';
 
 Page({
   data: {
     page: 1,
     comics: [],
-    cate: '',
+    content: {
+      cate: '',
+      keyword: '',
+    },
     lock: false,
   },
-  requestComics(cate, page) {
+  requestComics(content, page) {
     this.setData({ lock: true });
-    getCateComicList(cate, page, (err, comics) => {
+    const { cate, keyword } = content;
+    const getComicList = keyword ? search : getCateComicList;
+    getComicList(cate || keyword, page, (err, comics) => {
       if (err) {
         wx.showToast({
           title: '请求失败',
@@ -24,17 +29,21 @@ Page({
       this.setData({
         comics: this.data.comics.concat(comics),
         page: this.data.page + 1,
-        cate,
+        content,
         lock: false,
       });
     });
   },
   onLoad(options) {
-    this.requestComics(options.cate, this.data.page);
+    const { cate, keyword } = options;
+     wx.setNavigationBarTitle({
+      title: cate || keyword,
+    });
+    this.requestComics(options);
   },
   handleScrollToLower() {
     if (!this.data.lock) {
-      this.requestComics(this.data.cate, this.data.page);
+      this.requestComics(this.data.content, this.data.page);
     }
   },
-})
+});

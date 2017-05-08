@@ -14,12 +14,16 @@
         </view>
       </view>
     </view>
-    <view class="desc">
+    <view class="desc" style="height: {{descH}};">
       {{comic.description}}
     </view>
+    <image src="../../images/more.svg" class="more" bindtap="more" style="transform: rotateX({{rotateX}});"></image>
   </view>
   <view class="chapters">
-    <view class="h3">漫画章节</view>
+    <view class="h3">
+      漫画章节
+      <image src="../../images/{{down ? 'down' : 'up'}}.svg" class="more" bindtap="sort"></image>
+    </view>
     <view class="chapter" wx:for="{{chapters}}" wx:key="{{index}}">
       <text class="cate">{{item[0].cate}}</text> 
       <view class="eps">

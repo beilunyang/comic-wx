@@ -1,3 +1,12 @@
-<scroll-view class="reader" scroll-y="true" bindscrolltolower="handleScrollToLower" lower-threshold="200">
+<view bindtap="changeReader">
+  <scroll-view class="reader" scroll-y="true" bindscrolltolower="handleScrollToLower" lower-threshold="200">
     <image src="{{item}}" wx:key="{{item}}" style=" height:{{readerHs[index]}};" wx:for="{{images}}" class="image"></image>
-</scroll-view>
+  </scroll-view>
+  <view class="reader-header {{show ? 'show-header' : ''}}">
+  </view>
+  <view class="reader-footer {{show ? 'show-footer' : ''}}">
+    <image src="../../images/list.svg" class="footer-icon"></image>
+    <image src="../../images/prev.svg" class="footer-icon"></image>
+    <image src="../../images/next.svg" class="footer-icon"></image>
+  </view>
+</view>

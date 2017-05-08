@@ -17,4 +17,17 @@ Page({
       });
     });
   },
-})
+  search(e) {
+    const keyword = e.detail.value;
+    if (keyword) {
+      wx.navigateTo({
+        url: `/pages/list/list?keyword=${keyword}`,
+      });
+    } else {
+      wx.showToast({
+        title: '关键字不能为空',
+        duration: 2000,
+      });
+    }
+  },
+});

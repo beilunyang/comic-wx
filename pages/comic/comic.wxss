@@ -1,5 +1,6 @@
 .header {
   background-color: #fff;
+  overflow: hidden;
 }
 
 .info-wrapper {
@@ -58,6 +59,14 @@
   font-size: 22rpx;
   padding: 16rpx;
   line-height: 1.6;
+  overflow: hidden;
+}
+
+.more {
+  height: 30rpx;
+  width: 30rpx;
+  float: right;
+  margin: -4rpx 25rpx 10rpx 0;
 }
 
 .chapters {
@@ -80,7 +89,7 @@
 
 .cate {
   font-size: 26rpx;
-  padding: 20rpx;
+  padding: 20rpx 20rpx 0;
 }
 
 .eps {
