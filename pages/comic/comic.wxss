@@ -104,7 +104,7 @@
   border: 2rpx solid #e6e6e6;
   text-align: center;
   width: 150rpx;
-  margin: 11rpx;
+  margin: 13rpx;
   padding: 16rpx 10rpx;
   border-radius: 8rpx;
   text-overflow: ellipsis;

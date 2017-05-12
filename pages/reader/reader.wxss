@@ -13,20 +13,21 @@ page {
 }
 
 ::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    color: transparent;
+  width: 0;
+  height: 0;
+  color: transparent;
 }
 
 .reader-header, .reader-footer {
   position: fixed;
-  left: 0; right: 0;
-  background-color: rgba(0, 0, 0, .9);
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   height: 0;
   opacity: 0;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .reader-header {
@@ -53,3 +54,60 @@ page {
   width: 50rpx;
 }
 
+.chapterList {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  bottom: 90rpx;
+  height: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  display: flex;
+  flex-wrap: wrap;
+  color: #f2f2f2;
+  transition: all 0.3s ease;
+}
+
+.show-list {
+  opacity: 1;
+  height: 40%;
+}
+
+/* /page/comic/comic.wxss */
+
+.chapters {
+  margin-top: 30rpx;
+  padding: 0 25rpx;
+}
+
+.chapter {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.cate {
+  font-size: 26rpx;
+  padding: 20rpx 20rpx 0;
+}
+
+.eps {
+  width: 100%;
+  font-size: 22rpx;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10rpx;
+}
+
+.ep {
+  border: 2rpx solid #e6e6e6;
+  text-align: center;
+  width: 150rpx;
+  margin: 13rpx;
+  padding: 16rpx 10rpx;
+  border-radius: 8rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+}

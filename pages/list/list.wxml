@@ -1,11 +1,11 @@
-<scroll-view class="list" scroll-y="true" lower-threshold="100" bindscrolltolower="handleScrollToLower">
+<scroll-view class="list" scroll-y="true" lower-threshold="200" bindscrolltolower="handleScrollToLower">
   <navigator url="../comic/comic?mid={{item.mid}}" class="item" wx:for="{{comics}}" wx:key="{{item.mid}}" hover-class="">
     <image src="{{item.origin_cover}}" class="cover"></image>
     <text class="title">{{item.title}}</text>
     <text class="author">作者: {{item.authors}}</text>
   </navigator>
   <view class="load">
-    <image src="../../images/loading.svg" class="cat"></image>
-    加载中...
+    <image src="../../images/load{{loaded ? 'ed' : 'ing'}}.svg" class="cat"></image>
+    {{loaded ? '魔法炼成' : '马猴烧酒炼成中'}}
   </view>
 </scroll-view>

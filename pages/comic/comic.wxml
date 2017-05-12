@@ -1,8 +1,8 @@
 <view class="container">
   <view class="header">
     <view class="info-wrapper">
-      <view class="bg" style="background-image: url({{comic.origin_cover}})"></view>
-      <image src="{{comic.origin_cover}}" class="cover"></image>
+      <view class="bg" style="background-image: url({{comic.cover}})"></view>
+      <image src="{{comic.cover}}" class="cover"></image>
       <view class="info">
         <text>作者: {{comic.authors}}</text>
         <text>类型: {{comic.types}}</text>

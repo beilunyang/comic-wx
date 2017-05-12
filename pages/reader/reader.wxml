@@ -1,12 +1,22 @@
-<view bindtap="changeReader">
-  <scroll-view class="reader" scroll-y="true" bindscrolltolower="handleScrollToLower" lower-threshold="200">
+<view style="height: 100%;">
+  <scroll-view class="reader" scroll-y="true" bindscrolltolower="handleScrollToLower" lower-threshold="200" bindtap="showToolbar">
     <image src="{{item}}" wx:key="{{item}}" style=" height:{{readerHs[index]}};" wx:for="{{images}}" class="image"></image>
   </scroll-view>
   <view class="reader-header {{show ? 'show-header' : ''}}">
   </view>
   <view class="reader-footer {{show ? 'show-footer' : ''}}">
-    <image src="../../images/list.svg" class="footer-icon"></image>
-    <image src="../../images/prev.svg" class="footer-icon"></image>
-    <image src="../../images/next.svg" class="footer-icon"></image>
+    <image src="../../images/list.svg" class="footer-icon" bindtap="showChapters"></image>
+    <image src="../../images/prev.svg" class="footer-icon" bindtap="prevChapter"></image>
+    <image src="../../images/next.svg" class="footer-icon" bindtap="nextChapter"></image>
   </view>
+  <scroll-view class="chapterList {{showChapterList ? 'show-list' : ''}}" scroll-y="true">
+    <view class="chapters">
+      <view class="chapter" wx:for="{{chapters}}" wx:key="{{index}}">
+        <text class="cate">{{item[0].cate}}</text>
+        <view class="eps">
+          <navigator url="/pages/reader/reader" class="ep" wx:for="{{item}}" wx:for-item="cp" wx:for-index="cat" wx:key="{{cp.pid}}" bindtap="handleTap" data-idx="{{cat}}" data-cat="{{index}}" bindtap="handleTap">{{cp.title}}</navigator>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
 </view>

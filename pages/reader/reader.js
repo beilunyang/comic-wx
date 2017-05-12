@@ -6,20 +6,28 @@ Page({
   data: {
     readerHs: [],
     images: [],
-    i: 0,
+    i: 0, // 类似page
     max: 0,
     lock: false,
     show: false,
+    showChapterList: false,
+    chapters: [],
   },
   onLoad() {
     let readerW = '';
     const chapter = app.globalData.chapter;
-    const images = chapter.images;
+    const origin_images = chapter.origin_images;
+    const images = origin_images.map(v => 'http://localhost:2333' + v);
     const max = Math.floor(images.length / 5);
+    chapter.images = images;
     wx.setNavigationBarTitle({
       title: chapter.title,
     });
-    this.setData({ max });
+    this.setData({
+      max,
+      chapters: app.globalData.chapters,
+      chapter,
+    });
     this.loadImages(0);
   },
   loadImages(i) {
@@ -56,10 +64,26 @@ Page({
       this.loadImages(this.data.i);
     }
   },
-  changeReader() {
-    console.log('exe');
+  handleTap(e) {
+    const dataset = e.target.dataset;
+    const chapter = this.data.chapters[dataset.cat][dataset.idx];
+    app.globalData.chapter = chapter;
+  },
+  showToolbar() {
     this.setData({
       show: !this.data.show,
+      showChapterList: false,
     });
+  },
+  showChapters() {
+    this.setData({
+      showChapterList: !this.data.showChapterList,
+    });
+  },
+  prevChapter() {
+
+  },
+  nextChapter() {
+
   },
 });

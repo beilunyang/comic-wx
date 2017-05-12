@@ -25,16 +25,16 @@ Page({
       comic.update_time = new Date(comic.update_time * 1000).toLocaleDateString();
       comic.authors = comic.authors.join('/');
       comic.types = comic.types.join('/');
-      comic.origin_cover = 'http://localhost:2333/cover' + comic.origin_cover;
-      this.setData({ comic, chapters: comic.chapters });
+      comic.cover = 'http://localhost:2333/cover' + comic.origin_cover;
+      const chapters = comic.chapters;
+      this.setData({ comic, chapters });
     });
   },
   handleTap(e) {
     const dataset = e.target.dataset;
     const chapter = this.data.chapters[dataset.cat][dataset.idx];
-    const images = chapter.origin_images;
-    chapter.images = images.map(v => 'http://localhost:2333' + v);
     app.globalData.chapter = chapter;
+    app.globalData.chapters = this.data.chapters;
   },
   more() {
     if (this.data.descH === '58rpx') {

@@ -11,8 +11,8 @@
   "window":{
     "backgroundColor": "#f5f5f5",
     "backgroundTextStyle":"#fff",
-    "navigationBarBackgroundColor": "#000",
-    "navigationBarTitleText": "漫画",
+    "navigationBarBackgroundColor": "#9ac954",
+    "navigationBarTitleText": "萌萝莉",
     "navigationBarTextStyle":"#fff",
     "enablePullDownRefresh": true
   },

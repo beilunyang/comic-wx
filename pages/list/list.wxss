@@ -1,19 +1,19 @@
 .list {
-  padding: 0 30rpx;
-  /*
-  scroll-view中无效
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
-  */
   height: 100%;
+  width: 714rpx;
+  margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
 }
 
 .item {
   float: left;
   width: 200rpx;
-  margin: 15rpx;
+  margin: 18rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,7 +41,6 @@
   white-space: nowrap;
   overflow: hidden;
 }
-
 
 .load {
   width: 100%;
