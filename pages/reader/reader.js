@@ -14,6 +14,7 @@ Page({
     chapters: [],
   },
   onLoad() {
+    console.log(app.globalData.chapters.nav);
     let readerW = '';
     const chapter = app.globalData.chapter;
     const origin_images = chapter.origin_images;
@@ -81,9 +82,29 @@ Page({
     });
   },
   prevChapter() {
-
+    const cp = app.globalData.chapter;
+    if (cp.foremost) {
+      wx.showToast({
+        title: '已经是第一章了',
+      });
+    } else {
+      app.globalData.chapter = app.globalData.chapters.nav[cp.idx-2];
+      wx.redirectTo({
+        url: '/pages/reader/reader',
+      });
+    }
   },
   nextChapter() {
-
+    const cp = app.globalData.chapter;
+    if (cp.latest) {
+      wx.showToast({
+        title: '已经是最后一章了',
+      });
+    } else {
+      app.globalData.chapter = this.data.chapters.nav[cp.idx];
+      wx.redirectTo({
+        url: '/pages/reader/reader',
+      });
+    }
   },
 });

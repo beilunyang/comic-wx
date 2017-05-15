@@ -1,17 +1,19 @@
-//app.js
+import { wxlogin } from './api/index.js';
 App({
-  onLaunch: function () {
+  onLaunch () {
     wx.login({
-      success() {
-        wx.getUserInfo({
-          success: () => {
-            this.globalData.userInfo = res.userInfo;
-          },
-          fail(res) {
-            console.error('用户授权失败');
-          },
-        }); 
+      success(res) {
+        const code = res.code;
+        if (code) {
+          wxlogin(code, (err, result) => {
+            if (err) return console.error(err.message);
+            console.log(result);
+          });
+        }
       },
+      fail() {
+        console.error('login请求发送失败');
+      }
     });
   },
   globalData:{

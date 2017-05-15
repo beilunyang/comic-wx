@@ -17,6 +17,10 @@ const _get = (url, cb) => {
     });
 }
 
+export const wxlogin = (code, cb) => {
+    _get(`${BASE_URL}/wxlogin?code=${code}`, cb);
+}
+
 export const getComicCates = (cb) => {
     _get(`${BASE_URL}/comic/cate`, cb);
 };

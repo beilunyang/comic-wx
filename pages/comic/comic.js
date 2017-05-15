@@ -27,6 +27,21 @@ Page({
       comic.types = comic.types.join('/');
       comic.cover = 'http://localhost:2333/cover' + comic.origin_cover;
       const chapters = comic.chapters;
+      // 为chapter设置位置索引
+      let chapterNum = 0;
+      chapters.forEach(cps => chapterNum += cps.length);
+      let idx = chapterNum;
+      const nav = [];
+      chapters.forEach((cps) => {
+        cps.forEach((cp) => {
+          if (idx === chapterNum) cp.latest = true;
+          if (idx === 1) cp.foremost = true;
+          cp.idx = idx;
+          nav.push(cp);
+          --idx;
+        });
+      });
+      chapters.nav = nav.reverse();
       this.setData({ comic, chapters });
     });
   },
