@@ -17,8 +17,26 @@ const _get = (url, cb) => {
     });
 }
 
-export const wxlogin = (code, cb) => {
-    _get(`${BASE_URL}/wxlogin?code=${code}`, cb);
+const _post = (url, data, cb) => {
+  wx.request({
+    url,
+    method: 'POST',
+    data,
+    success(res) {
+      console.log(res);
+      if (res.statusCode >= 200 && res.statusCode < 400) {
+        return cb(null, res.data);
+      }
+      cb(new Error('res status is incorrent'));
+    },
+    fail() {
+      cb(new Error('req fail'));
+    }
+  })
+}
+
+export const wxlogin = (data, cb) => {
+    _post(`${BASE_URL}/wxlogin`, data, cb);
 }
 
 export const getComicCates = (cb) => {

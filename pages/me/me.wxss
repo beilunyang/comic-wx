@@ -1,5 +1,5 @@
 .header {
-  background: url('../../images/1.jpg') no-repeat center center / cover;
+  background: url('https://ooo.0o0.ooo/2017/05/23/5923257b98e31.jpg') no-repeat center center / cover;
   height: 300rpx;
   display: flex;
   flex-direction: column;
@@ -95,7 +95,7 @@
   position: absolute;
   top: -4rpx;
   left: 16rpx;
-  background: url('../../images/more.png') no-repeat;
+  /*background: url('../../images/more.png') no-repeat;*/
   background-size: cover;
   height: 28rpx;
   width: 28rpx;

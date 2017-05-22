@@ -1,7 +1,7 @@
 <view class="container">
   <view class="header">
-    <image src="../../images/2.jpeg" class="avatar"></image>
-    <text class="nickname">悖论</text>
+    <image src="{{avatarUrl}}" class="avatar"></image>
+    <text class="nickname">{{nickName}}</text>
   </view>
   <view class="records">
     <view class="record-header">
