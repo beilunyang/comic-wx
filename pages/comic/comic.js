@@ -42,6 +42,7 @@ Page({
         });
       });
       chapters.nav = nav.reverse();
+      chapters.cover = comic.origin_cover;
       this.setData({ comic, chapters });
     });
   },

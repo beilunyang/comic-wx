@@ -9,10 +9,10 @@
       <text class="num">4</text>
     </view>
     <view class="record-content">
-      <view class="record-item">
-        <image src="../../images/1.jpg" class="record-cover"></image>
-        <text class="record-title">第一次</text>
-      </view>
+      <navigator url="../reader/reader" class="record-item" wx:for="{{records}}" wx:key="{{item.mid}}">
+        <image class="record-cover" src="{{item.cover}}"></image>
+        <text class="record-title">{{item.title}}</text>
+      </navigator>
     </view>
   </view>
   <view class="collection">

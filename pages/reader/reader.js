@@ -1,4 +1,5 @@
 import { WxPromisify } from '../../utils/util';
+import { addRecord } from '../../api/index';
 
 const app = getApp();
 
@@ -17,6 +18,10 @@ Page({
     console.log(app.globalData.chapters.nav);
     let readerW = '';
     const chapter = app.globalData.chapter;
+    const chapters = app.globalData.chapters;
+    const cover = chapters.cover;
+    const { title, mid, pid } = chapter;
+    addRecord({ title, mid, pid, cover });
     const origin_images = chapter.origin_images;
     const images = origin_images.map(v => 'http://localhost:2333' + v);
     const max = Math.floor(images.length / 5);
@@ -26,7 +31,7 @@ Page({
     });
     this.setData({
       max,
-      chapters: app.globalData.chapters,
+      chapters,
       chapter,
     });
     this.loadImages(0);
