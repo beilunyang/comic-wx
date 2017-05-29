@@ -39,8 +39,9 @@
 }
 
 .record-content {
+  box-sizing: border-box;
   padding: 0 20rpx;
-  display: flex;
+  white-space: nowrap;
 }
 
 .record-header {
@@ -54,9 +55,8 @@
 
 .record-item {
   padding: 20rpx;
-  display: flex;
   width: auto;
-  flex-direction: column;
+  display: inline-block;
 }
 
 .record-cover {
@@ -66,6 +66,7 @@
 }
 
 .record-title {
+  display: block;
   text-align: center;
   font-size: 20rpx;
   margin: 10rpx 0;

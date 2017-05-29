@@ -42,6 +42,21 @@
   color: #fff;
 }
 
+.progress {
+  position: absolute;
+  right: 0;
+  bottom: 30rpx;
+  font-size: 20rpx;
+  background-color: #9ac954;
+  border-radius: 20rpx 0 0 20rpx;
+  padding: 10rpx 16rpx;
+  color: #fff;
+  width: 200rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .btn-group {
   display: flex;
 }

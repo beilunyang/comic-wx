@@ -1,4 +1,4 @@
-import { WxPromisify } from '../../utils/util';
+import { getImageInfo } from '../../utils/util';
 import { addRecord } from '../../api/index';
 
 const app = getApp();
@@ -44,7 +44,7 @@ Page({
       const img = images[k];
       if (img) {
         // getImageInfo 最多连续请求10张，第11张起会下载失败
-        ps.push(WxPromisify.getImageInfo(img, (res) => {
+        ps.push(getImageInfo(img, (res) => {
           const ratio = res.height / res.width;
           return ratio * 750 + 'rpx';
         }));

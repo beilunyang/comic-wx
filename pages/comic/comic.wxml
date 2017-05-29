@@ -4,15 +4,17 @@
       <view class="bg" style="background-image: url({{comic.cover}})"></view>
       <image src="{{comic.cover}}" class="cover"></image>
       <view class="info">
+
         <text>作者: {{comic.authors}}</text>
         <text>类型: {{comic.types}}</text>
         <text>状态: {{comic.finished ? '已完结' : '连载中'}}</text>
         <text>最后更新: {{comic.update_time}}</text>
         <view class="btn-group">
-          <view class="btn">收藏</view>
-          <view class="btn">开始阅读</view>
+          <view class="btn" bindtap="collection">收藏</view>
+          <view class="btn" bindtap="read">{{progress ? '继续阅读' : '开始阅读'}}</view>
         </view>
       </view>
+      <view class="progress" wx:if="{{progress}}">上次阅读: {{progress.title}}</view>
     </view>
     <view class="desc" style="height: {{descH}};">
       {{comic.description}}
@@ -24,7 +26,8 @@
       漫画章节
       <image src="../../images/{{down ? 'down' : 'up'}}.svg" class="more" bindtap="sort"></image>
     </view>
-    <view class="chapter" wx:for="{{chapters}}" wx:key="{{index}}">
+    <view wx:if="{{!chapters.length}}">暂无资源</view>
+    <view class="chapter" wx:for="{{chapters}}" wx:key="{{index}}" wx:if="{{chapters.length}}">
       <text class="cate">{{item[0].cate}}</text> 
       <view class="eps">
         <navigator url="/pages/reader/reader" class="ep" wx:for="{{item}}" wx:for-item="cp" wx:for-index="cat" wx:key="{{cp.pid}}" bindtap="handleTap" data-idx="{{cat}}" data-cat="{{index}}">{{cp.title}}</navigator>

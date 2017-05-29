@@ -76,3 +76,7 @@ export const addRecord = (data, cb) => {
 export const getRecords = (cb) => {
   _get(`${BASE_URL}/user/record`, cb);
 };
+
+export const getReadProgress = (mid, cb) => {
+  _get(`${BASE_URL}/user/record/${mid}`, cb);
+};

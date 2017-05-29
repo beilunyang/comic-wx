@@ -1,4 +1,4 @@
-import { getRecords, getChapter } from '../../api/index';
+import { getRecords } from '../../api/index';
 
 const app = getApp();
 Page({
@@ -7,26 +7,15 @@ Page({
     nickName: '',
     records: [],
   },
-  onLoad() {
+  onShow() {
     const { avatarUrl, nickName } = app.globalData.userInfo;
     this.setData({ avatarUrl, nickName });
     getRecords((err, records) => {
       if (err) return console.error(err.message);
-      const newRecords = Object.keys(records).map((mid) => {
-        const comic = JSON.parse(records[mid]);
-        comic.cover = 'http://localhost:2333/cover' + comic.cover;
-        comic.mid = mid;
-        return comic;
+      records.forEach((record) => {
+        record.cover = 'http://localhost:2333/cover' + record.cover;
       });
-      this.setData({ records: newRecords });
-    });
-  },
-  continueRead(e) {
-    const { mid, pid } = e.target;
-    // to be continued
-    getComic(mid, pid, (err, chapter) => {
-      if (err) return console.error(err.message);
-      app.globalData.chapter = chapter;
+      this.setData({ records });
     });
   },
   more() {

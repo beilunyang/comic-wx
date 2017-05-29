@@ -1,4 +1,4 @@
-import { getComic } from '../../api/index';
+import { getComic, getReadProgress } from '../../api/index';
 
 const app = getApp();
 
@@ -9,9 +9,10 @@ Page({
     descH: '58rpx',
     rotateX: 0,
     down: true,
+    progress: null,
   },
-  onLoad: function (options) {
-    getComic(options.mid, (err, comic) => {
+  onLoad({ mid }) {
+    getComic(mid, (err, comic) => {
       if (err) {
         wx.showToast({
           title: '请求失败',
@@ -45,6 +46,13 @@ Page({
       chapters.cover = comic.origin_cover;
       this.setData({ comic, chapters });
     });
+    const session_id = app.globalData.session_id;
+    if (session_id) {
+      getReadProgress(mid, (err, chapter) => {
+        if (err) return console.error(err.message);
+        this.setData({ progress: chapter });
+      });
+    }
   },
   handleTap(e) {
     const dataset = e.target.dataset;
@@ -78,5 +86,31 @@ Page({
         chapters,
       });
     }
+  },
+  collection() {
+
+  },
+  read() {
+    const progress = this.data.progress;
+    const chapters = this.data.chapters;
+    if (progress) {
+      for (const chapter of chapters) {
+        if (chapter.pid === progress.pid) {
+          app.globalData.chapter = chapter;
+          break;
+        }
+      }
+    } else {
+      if (this.data.down) {
+        const cateChapters = chapters[chapters.length - 1];
+        app.globalData.chapter = cateChapters[cateChapters.length - 1];
+      } else {
+        app.globalData.chapter = chapters[0][0];
+      }
+    }
+    app.globalData.chapters = this.data.chapters;
+    wx.navigateTo({
+      url: '/pages/reader/reader',
+    });
   },
 });

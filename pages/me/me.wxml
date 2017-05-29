@@ -6,14 +6,14 @@
   <view class="records">
     <view class="record-header">
       <text>最近阅读</text>
-      <text class="num">4</text>
+      <text class="num">{{records.length}}</text>
     </view>
-    <view class="record-content">
-      <navigator url="../reader/reader" class="record-item" wx:for="{{records}}" wx:key="{{item.mid}}">
+    <scroll-view scroll-x class="record-content">
+      <navigator url="../comic/comic?mid={{item.mid}}" class="record-item" hover-class="" wx:for="{{records}}" wx:key="{{item.mid}}">
         <image class="record-cover" src="{{item.cover}}"></image>
         <text class="record-title">{{item.title}}</text>
       </navigator>
-    </view>
+    </scroll-view>
   </view>
   <view class="collection">
     <view class="collection-header">

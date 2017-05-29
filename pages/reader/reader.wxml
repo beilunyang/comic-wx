@@ -1,5 +1,5 @@
 <view style="height: 100%;">
-  <scroll-view class="reader" scroll-y="true" bindscrolltolower="handleScrollToLower" lower-threshold="200" bindtap="showToolbar">
+  <scroll-view class="reader" scroll-y bindscrolltolower="handleScrollToLower" lower-threshold="200" bindtap="showToolbar">
     <image src="{{item}}" wx:key="{{item}}" style=" height:{{readerHs[index]}};" wx:for="{{images}}" class="image"></image>
   </scroll-view>
   <view class="reader-header {{show ? 'show-header' : ''}}">
