@@ -1,18 +1,23 @@
+import { login } from '../utils/util';
+
 const BASE_URL = 'http://localhost:8888/api/v1';
 
-const _get = (url, cb) => {
+const _get = (url, cb, app) => {
     wx.request({
         url,
         method: 'GET',
         header: {
-          Authorization: wx.getStorageSync('session_id'),
+          Authorization: app ? app.globalData.session_id : '',
         },
         success(res) {
             console.log(res);
             if (res.statusCode >= 200 && res.statusCode < 400) {
                 return cb && cb(null, res.data);
             }
-            cb && cb(new Error('res status is incorrect'));
+            if (res.statusCode === 401 && app) {
+              login(app);
+            }
+            cb && cb(new Error('res status is incorrent'));
         },
         fail() {
             cb && cb(new Error('req fail'));
@@ -20,18 +25,21 @@ const _get = (url, cb) => {
     });
 }
 
-const _post = (url, data, cb) => {
+const _post = (url, data, cb, app) => {
   wx.request({
     url,
     method: 'POST',
     data,
     header: {
-      Authorization: wx.getStorageSync('session_id'),
+      Authorization: app ? app.globalData.session_id : '',
     },
     success(res) {
       console.log(res);
       if (res.statusCode >= 200 && res.statusCode < 400) {
         return cb && cb(null, res.data);
+      }
+      if (res.statusCode === 401 && app) {
+        login(app);
       }
       cb && cb(new Error('res status is incorrent'));
     },
@@ -39,10 +47,6 @@ const _post = (url, data, cb) => {
       cb && cb(new Error('req fail'));
     }
   })
-}
-
-export const wxlogin = (data, cb) => {
-    _post(`${BASE_URL}/wxlogin`, data, cb);
 }
 
 export const getComicCates = (cb) => {
@@ -69,14 +73,14 @@ export const search = (keyword, page, cb) => {
     _get(`${BASE_URL}/comic/search/${keyword}/page/${page}`, cb);
 };
 
-export const addRecord = (data, cb) => {
-  _post(`${BASE_URL}/user/record`, data, cb);
+export const addRecord = (data, cb, app) => {
+  _post(`${BASE_URL}/user/record`, data, cb, app);
 };
 
-export const getRecords = (cb) => {
-  _get(`${BASE_URL}/user/record`, cb);
+export const getRecords = (cb, app) => {
+  _get(`${BASE_URL}/user/record`, cb, app);
 };
 
-export const getReadProgress = (mid, cb) => {
-  _get(`${BASE_URL}/user/record/${mid}`, cb);
+export const getReadProgress = (mid, cb, app) => {
+  _get(`${BASE_URL}/user/record/${mid}`, cb, app);
 };

@@ -51,7 +51,7 @@ Page({
       getReadProgress(mid, (err, chapter) => {
         if (err) return console.error(err.message);
         this.setData({ progress: chapter });
-      });
+      }, app);
     }
   },
   handleTap(e) {
@@ -94,10 +94,13 @@ Page({
     const progress = this.data.progress;
     const chapters = this.data.chapters;
     if (progress) {
-      for (const chapter of chapters) {
-        if (chapter.pid === progress.pid) {
-          app.globalData.chapter = chapter;
-          break;
+      findChapter:
+      for (const cate of chapters) {
+        for (const chapter of cate) {
+          if (chapter.pid === progress.pid) {
+            app.globalData.chapter = chapter;
+            break findChapter;
+          }
         }
       }
     } else {

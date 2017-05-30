@@ -15,13 +15,14 @@ Page({
     chapters: [],
   },
   onLoad() {
-    console.log(app.globalData.chapters.nav);
     let readerW = '';
     const chapter = app.globalData.chapter;
     const chapters = app.globalData.chapters;
     const cover = chapters.cover;
     const { title, mid, pid } = chapter;
-    addRecord({ title, mid, pid, cover });
+    if (app.globalData.session_id) {
+      addRecord({ title, mid, pid, cover }, null, app);
+    }
     const origin_images = chapter.origin_images;
     const images = origin_images.map(v => 'http://localhost:2333' + v);
     const max = Math.floor(images.length / 5);

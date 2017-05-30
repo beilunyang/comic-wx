@@ -1,6 +1,6 @@
 <view class="container">
-  <view class="header">
-    <image src="{{avatarUrl}}" class="avatar"></image>
+  <view class="header" bindtap="login">
+    <image src="{{avatarUrl}}" class="avatar" mode="aspectFill"></image>
     <text class="nickname">{{nickName}}</text>
   </view>
   <view class="records">
