@@ -84,7 +84,7 @@
   margin: -4rpx 25rpx 10rpx 0;
 }
 
-.chapters {
+.chapters, .comment {
   margin-top: 30rpx;
   background-color: #fff;
   padding: 0 20rpx;
@@ -126,4 +126,13 @@
   white-space: nowrap;
   overflow: hidden;
   box-sizing: border-box;
+}
+
+/* TODO: comment */
+.comment-content {
+  height: 100rpx;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
