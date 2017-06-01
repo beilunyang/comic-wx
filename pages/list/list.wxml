@@ -4,8 +4,4 @@
     <text class="title">{{item.title}}</text>
     <text class="author">作者: {{item.authors}}</text>
   </navigator>
-  <view class="load">
-    <image src="../../images/load{{loaded ? 'ed' : 'ing'}}.svg" class="cat"></image>
-    {{loaded ? '魔法炼成' : '马猴烧酒炼成中'}}
-  </view>
 </scroll-view>

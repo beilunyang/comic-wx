@@ -10,13 +10,13 @@ Page({
       keyword: '',
     },
     lock: false,
-    loaded: false,
   },
   requestComics(content, page) {
     this.setData({ lock: true });
     const { cate, keyword } = content;
     const getComicList = keyword ? search : getCateComicList;
     getComicList(cate || keyword, page, (err, comics) => {
+      wx.hideLoading();
       if (err) {
         wx.showToast({
           title: '请求失败',
@@ -56,13 +56,21 @@ Page({
     wx.setNavigationBarTitle({
       title: cate || keyword,
     });
+    wx.showLoading({
+      title: '少年养成中',
+    });
     this.requestComics(options, 1);
   },
   handleScrollToLower() {
     if (!this.data.lock) {
       if (this.data.page > this.data.max) {
-        return this.setData({ loaded: true });
+        return wx.showToast({
+          title: '养成完毕',
+        });
       }
+      wx.showLoading({
+        title: '少女养成中',
+      });
       this.requestComics(this.data.content, this.data.page);
     }
   },
