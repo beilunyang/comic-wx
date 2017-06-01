@@ -4,4 +4,7 @@
     <text class="title">{{item.title}}</text>
     <text class="author">作者: {{item.authors}}</text>
   </navigator>
+  <view class="hint" wx:if="{{notFound}}">
+    没有找到相关少女
+  </view>
 </scroll-view>

@@ -42,15 +42,9 @@
   overflow: hidden;
 }
 
-.load {
-  width: 100%;
-  font-size: 20rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cat {
-  height: 40rpx;
-  width: 40rpx;
+.hint {
+  padding-top: 100rpx;
+  font-size: 26rpx;
+  text-align: center;
+  color: #333;
 }

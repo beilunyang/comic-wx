@@ -7,14 +7,11 @@ Page({
     getComicCates((err, cates) => {
       if (err) {
         wx.showToast({
-          title: '请求失败，下拉刷新试试(づ￣3￣)づ╭❤～',
-          duration: 2000
+          title: '请求失败，下拉刷新试试',
         });
         return console.error(err.message);
       };
-      this.setData({
-        cates,
-      });
+      this.setData({ cates });
     });
   },
   search(e) {
@@ -26,7 +23,6 @@ Page({
     } else {
       wx.showToast({
         title: '关键字不能为空',
-        duration: 2000,
       });
     }
   },
