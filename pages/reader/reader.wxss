@@ -86,8 +86,8 @@ page {
   text-align: center;
   padding: 20rpx 0;
   font-size: 26rpx;
-  color: #ccc;
-  background-color: #f5f5f5;
+  color: #000;
+  background-color: #fff;
 }
 
 /* /page/comic/comic.wxss */
