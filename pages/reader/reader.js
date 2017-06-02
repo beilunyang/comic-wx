@@ -9,11 +9,13 @@ Page({
     images: [],
     i: 0, // 类似page
     max: 0,
-    lock: false,
     show: false,
     showChapterList: false,
     chapters: [],
+    comic_title: '',
+    loadAll: false,
   },
+  lock: false,
   onLoad() {
     let readerW = '';
     const chapter = app.globalData.chapter;
@@ -34,11 +36,12 @@ Page({
       max,
       chapters,
       chapter,
+      comic_title: app.globalData.comic_title,
     });
     this.loadImages(0);
   },
   loadImages(i) {
-    this.setData({ lock: true });
+    this.lock = true;
     const images = app.globalData.chapter.images.slice(i * 5, ++i * 5);
     const ps = [];
     for (let k = 0; k < images.length; k++) {
@@ -56,17 +59,17 @@ Page({
         readerHs: this.data.readerHs.concat(readerHs),
         images: this.data.images.concat(images),
         i,
-        lock: false,
       });
+      this.lock = false;
     }).catch(() => {
       console.error('fail');
-      this.setData({ lock: false });
+      this.lock = false;
     });
   },
   handleScrollToLower() {
-    if (!this.data.lock) {
+    if (!this.lock) {
       if (this.data.i > this.data.max) {
-        return console.log('finished');
+        return this.setData({ loadAll: true });
       }
       this.loadImages(this.data.i);
     }

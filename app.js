@@ -18,5 +18,6 @@ App({
     session_id: '',
     chapter: {},
     chapters: [],
+    comic_title: '',
   },
 });

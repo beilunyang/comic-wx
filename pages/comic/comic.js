@@ -44,6 +44,7 @@ Page({
       });
       chapters.nav = nav.reverse();
       chapters.cover = comic.origin_cover;
+      app.globalData.comic_title = comic.title;
       this.setData({ comic, chapters });
     });
     const session_id = app.globalData.session_id;
