@@ -84,3 +84,19 @@ export const getRecords = (cb, app) => {
 export const getReadProgress = (mid, cb, app) => {
   _get(`${BASE_URL}/user/record/${mid}`, cb, app);
 };
+
+export const getCollections = (x, page, cb, app) => {
+  _get(`${BASE_URL}/user/collection/page/${page}`, cb, app);
+};
+
+export const addCollection = (data, cb, app) => {
+  _post(`${BASE_URL}/user/collection`, data, cb, app);
+};
+
+export const deCollection = (data, cb, app) => {
+  _post(`${BASE_URL}/user/de_collection`, data, cb, app);
+};
+
+export const inCollection = (mid, cb, app) => {
+  _get(`${BASE_URL}/user/collection/${mid}`, cb, app);
+};

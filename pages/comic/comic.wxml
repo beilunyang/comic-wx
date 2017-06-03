@@ -10,7 +10,7 @@
         <text>状态: {{comic.finished ? '已完结' : '连载中'}}</text>
         <text>最后更新: {{comic.update_time}}</text>
         <view class="btn-group">
-          <view class="btn" bindtap="collection">收藏</view>
+          <view class="btn" bindtap="toggleCollect">{{inCollection ? '已收藏' : '收藏'}}</view>
           <view class="btn" bindtap="read">{{progress ? '继续阅读' : '开始阅读'}}</view>
         </view>
       </view>

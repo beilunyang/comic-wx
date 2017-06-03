@@ -32,19 +32,19 @@
   color: #fff;
 }
 
-.records {
+.panel {
   background-color: #fff;
   margin: 30rpx 0;
   color: #3d3d3d;
 }
 
-.record-content {
+.panel-content {
   box-sizing: border-box;
   padding: 0 20rpx;
   white-space: nowrap;
 }
 
-.record-header {
+.panel-header {
   display: flex;
   justify-content: space-between;
   padding: 20rpx 10rpx;
@@ -53,19 +53,19 @@
   border-bottom: 2rpx solid #e6e6e6;
 }
 
-.record-item {
+.item {
   padding: 20rpx;
   width: auto;
   display: inline-block;
 }
 
-.record-cover {
+.cover {
   height: 180rpx;
   width: 140rpx;
   border-radius: 6rpx;
 }
 
-.record-title {
+.title {
   display: block;
   text-align: center;
   font-size: 20rpx;
@@ -91,17 +91,13 @@
 }
 
 .num {
-  position: relative;
-  padding-right: 14rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.num::after {
-  content: '';
-  position: absolute;
-  top: -4rpx;
-  left: 16rpx;
-  /*background: url('../../images/more.png') no-repeat;*/
-  background-size: cover;
-  height: 28rpx;
+.more {
   width: 28rpx;
+  height: 28rpx;
+  transform: translateY(-2rpx);
 }

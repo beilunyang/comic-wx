@@ -1,4 +1,4 @@
-import { getRecords } from '../../api/index';
+import { getRecords, getCollections } from '../../api/index';
 import { login } from '../../utils/util';
 
 const app = getApp();
@@ -18,15 +18,25 @@ Page({
     if (session_id) {
       getRecords((err, records) => {
         if (err) return console.error(err.message);
-        records.forEach((record) => {
-          record.cover = 'http://localhost:2333/cover' + record.cover;
+        records.forEach((comic) => {
+          comic.cover = 'http://localhost:2333/cover' + comic.origin_cover;
         });
         this.setData({ records });
+      }, app);
+      getCollections(null, 1, (err, collections) => {
+        if (err) return console.error(err.message);
+        const comics = collections.comics;
+        comics.forEach((comic) => {
+          comic.cover = 'http://localhost:2333/cover' + comic.origin_cover;
+        });
+        this.setData({ collections });
       }, app);
     }
   },
   more() {
-
+    wx.navigateTo({
+      url: '/pages/list/list?type=collection',
+    });
   },
   login() {
     if (!app.globalData.session_id) {

@@ -1,5 +1,6 @@
-import { getCateComicList, search } from '../../api/index';
+import { getCateComicList, search, getRecords, getCollections } from '../../api/index';
 
+const app = getApp();
 Page({
   data: {
     page: 1,
@@ -14,8 +15,15 @@ Page({
   lock: false,
   requestComics(content, page) {
     this.lock = true;
-    const { cate, keyword } = content;
-    const getComicList = keyword ? search : getCateComicList;
+    const { cate, keyword, type } = content;
+    let getComicList;
+    if (keyword) {
+      getComicList = search;
+    } else if (cate) {
+      getComicList = getCateComicList;
+    } else if (type === 'collection') {
+      getComicList = getCollections;
+    }
     getComicList(cate || keyword, page, (err, result) => {
       wx.hideLoading();
       if (err) {
@@ -52,12 +60,12 @@ Page({
         content,
       });
       this.lock = false;
-    });
+    }, app);
   },
   onLoad(options) {
-    const { cate, keyword } = options;
+    const { cate, keyword, type } = options;
     wx.setNavigationBarTitle({
-      title: cate || keyword,
+      title: cate || keyword || '我的收藏',
     });
     wx.showLoading({
       title: '少年养成中',

@@ -1,4 +1,4 @@
-import { getComic, getReadProgress } from '../../api/index';
+import { getComic, getReadProgress, addCollection, deCollection, inCollection } from '../../api/index';
 
 const app = getApp();
 
@@ -10,8 +10,11 @@ Page({
     rotateX: 0,
     down: true,
     progress: null,
+    inCollection: false,
   },
+  mid: null,
   onLoad({ mid }) {
+    this.mid = mid;
     getComic(mid, (err, comic) => {
       if (err) {
         wx.showToast({
@@ -47,11 +50,20 @@ Page({
       app.globalData.comic_title = comic.title;
       this.setData({ comic, chapters });
     });
+  },
+  onShow() {
+    const mid = this.mid;
     const session_id = app.globalData.session_id;
     if (session_id) {
       getReadProgress(mid, (err, chapter) => {
         if (err) return console.error(err.message);
         this.setData({ progress: chapter });
+      }, app);
+      inCollection(mid, (err, result) => {
+        if (err) return console.error(err.message);
+        if (result.status === 'ok') {
+          this.setData({ inCollection: true });
+        }
       }, app);
     }
   },
@@ -116,5 +128,30 @@ Page({
     wx.navigateTo({
       url: '/pages/reader/reader',
     });
+  },
+  toggleCollect() {
+    const mid = this.data.comic.mid;
+    if (this.data.inCollection) {
+      deCollection({ mid }, (err, result) => {
+        if (err) return console.error(err.message);
+        if (result.status === 'ok') {
+          this.setData({ inCollection: false });
+        }
+      }, app);
+    } else {
+      const { authors, origin_cover, title } = this.data.comic;
+      const data = {
+        mid,
+        origin_cover,
+        title,
+        authors: authors.split('/'),
+      };
+      addCollection(data, (err, result) => {
+        if (err) return console.error(err.message);
+        if (result.status === 'ok') {
+          this.setData({ inCollection: true });
+        }
+      }, app);
+    }
   },
 });

@@ -20,10 +20,10 @@ Page({
     let readerW = '';
     const chapter = app.globalData.chapter;
     const chapters = app.globalData.chapters;
-    const cover = chapters.cover;
+    const origin_cover = chapters.cover;
     const { title, mid, pid } = chapter;
     if (app.globalData.session_id) {
-      addRecord({ title, mid, pid, cover }, null, app);
+      addRecord({ title, mid, pid, origin_cover }, null, app);
     }
     const origin_images = chapter.origin_images;
     const images = origin_images.map(v => 'http://localhost:2333' + v);

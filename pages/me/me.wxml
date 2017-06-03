@@ -3,22 +3,30 @@
     <image src="{{avatarUrl}}" class="avatar" mode="aspectFill"></image>
     <text class="nickname">{{nickName}}</text>
   </view>
-  <view class="records">
-    <view class="record-header">
+  <view class="panel">
+    <view class="panel-header">
       <text>最近阅读</text>
-      <text class="num">{{records.length}}</text>
+      <view class="num">{{records.length}} / 30</view>
     </view>
-    <scroll-view scroll-x class="record-content">
-      <navigator url="../comic/comic?mid={{item.mid}}" class="record-item" hover-class="" wx:for="{{records}}" wx:key="{{item.mid}}">
-        <image class="record-cover" src="{{item.cover}}"></image>
-        <text class="record-title">{{item.title}}</text>
+    <scroll-view scroll-x class="panel-content">
+      <navigator url="../comic/comic?mid={{item.mid}}" class="item" hover-class="" wx:for="{{records}}" wx:key="{{item.mid}}">
+        <image class="cover" src="{{item.cover}}"></image>
+        <text class="title">{{item.title}}</text>
       </navigator>
     </scroll-view>
   </view>
-  <view class="collection">
-    <view class="collection-header">
+  <view class="panel">
+    <view class="panel-header">
       <text>我的收藏</text>
-      <text class="num">0</text>
+      <view class="num" bindtap="more">{{collections.total}}
+        <image src="../../images/more2.svg" class="more" mode="aspectFill" bindtap="more"></image>
+      </view>
     </view>
+    <scroll-view class="panel-content">
+      <navigator url="../comic/comic?mid={{item.mid}}" class="item" hover-class="" wx:for="{{collections.comics}}" wx:key="{{item.mid}}">
+        <image class="cover" src="{{item.cover}}"></image>
+        <text class="title">{{item.title}}</text>
+      </navigator>
+    </scroll-view>
   </view>
 </view>
