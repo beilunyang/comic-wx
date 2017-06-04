@@ -2,6 +2,17 @@
   width: 100%;
 }
 
+.slide-title {
+  position: absolute;
+  bottom: 0;
+  left: 0; right: 0;
+  /*background-color: rgba(221, 173, 42, .9);*/
+  background-color: rgba(154, 201, 84, .9);
+  color: #fff;
+  font-size: 22rpx;
+  padding: 10rpx 30rpx;
+}
+
 .theme {
   display: block;
 }

@@ -1,10 +1,12 @@
 <view class="container">
-  <swiper indicator-dots="true" autoplay="true" interval="5000" duration="1000" circular="true" indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="#fff">
-    <swiper-item>
-      <image src="../../images/1.jpg" class="swiper-image"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="../../images/2.jpeg" class="swiper-image"></image>
+  <swiper autoplay="true" interval="5000" duration="1000" circular="true">
+    <swiper-item wx:for="{{slides}}">
+      <navigator url="../comic/comic?mid={{item.mid}}">
+        <image src="{{item.cover}}" class="swiper-image" mode="aspectFill"></image>
+        <view class="slide-title">
+          {{item.title}}
+        </view>
+      </navigator>
     </swiper-item>
   </swiper>
   <view class="theme">
