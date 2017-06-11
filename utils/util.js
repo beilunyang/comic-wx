@@ -14,7 +14,7 @@ export const getImageInfo = (src, cb) => {
 
 const wxlogin = (data, cb) => {
   wx.request({
-    url: 'http://localhost:8888/api/v1/wxlogin',
+    url: 'http://localhost:8080/api/v1/wxlogin',
     method: 'POST',
     data,
     success(res) {
@@ -46,8 +46,8 @@ export const login = (app) => {
           success(res2) {
             console.log(res2);
             // 感觉没必要验证数据的完整性
-            const { rawData } = res2;
-            wxlogin({ code, rawData }, (err, result) => {
+            const { rawData, signature } = res2;
+            wxlogin({ code, rawData, signature }, (err, result) => {
               if (err) return console.error(err.message);
               const { session_id } = result;
               if (session_id) {

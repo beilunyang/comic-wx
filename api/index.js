@@ -1,6 +1,6 @@
 import { login } from '../utils/util';
 
-const BASE_URL = 'http://localhost:8888/api/v1';
+const BASE_URL = 'http://localhost:8080/api/v1';
 
 const _get = (url, cb, app) => {
     wx.request({

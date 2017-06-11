@@ -2,7 +2,6 @@
   "pages":[
     "pages/index/index",
     "pages/cate/cate",
-    "pages/special/special",
     "pages/me/me",
     "pages/list/list",
     "pages/comic/comic",
@@ -29,12 +28,6 @@
         "text": "分类",
         "iconPath": "./images/book.png",
         "selectedIconPath": "./images/book1.png"
-      },
-      {
-        "pagePath": "pages/special/special",
-        "text": "专题",
-        "iconPath": "./images/recommend.png",
-        "selectedIconPath": "./images/recommend1.png"
       },
       {
         "pagePath": "pages/me/me",

@@ -1,6 +1,6 @@
 <view class="container">
   <swiper autoplay="true" interval="5000" duration="1000" circular="true">
-    <swiper-item wx:for="{{slides}}">
+    <swiper-item wx:for="{{slides}}" wx:key="{{item.mid}}">
       <navigator url="../comic/comic?mid={{item.mid}}">
         <image src="{{item.cover}}" class="swiper-image" mode="aspectFill"></image>
         <view class="slide-title">
