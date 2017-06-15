@@ -1,5 +1,7 @@
 import { getComic, getReadProgress, addCollection, deCollection, inCollection } from '../../api/index';
+import config from '../../config';
 
+const { IMG_HOST } = config;
 const app = getApp();
 
 Page({
@@ -29,7 +31,7 @@ Page({
       comic.update_time = new Date(comic.update_time * 1000).toLocaleDateString();
       comic.authors = comic.authors.join('/');
       comic.types = comic.types.join('/');
-      comic.cover = 'http://localhost:2333/cover' + comic.origin_cover;
+      comic.cover = `${IMG_HOST}/cover${comic.origin_cover}`;
       const chapters = comic.chapters;
       // 为chapter设置位置索引
       let chapterNum = 0;
@@ -47,13 +49,13 @@ Page({
       });
       chapters.nav = nav.reverse();
       chapters.cover = comic.origin_cover;
-      app.globalData.comic_title = comic.title;
+      app.store.comic_title = comic.title;
       this.setData({ comic, chapters });
     });
   },
   onShow() {
     const mid = this.mid;
-    const session_id = app.globalData.session_id;
+    const session_id = app.store.session_id;
     if (session_id) {
       getReadProgress(mid, (err, chapter) => {
         if (err) return console.error(err.message);
@@ -70,8 +72,8 @@ Page({
   handleTap(e) {
     const dataset = e.target.dataset;
     const chapter = this.data.chapters[dataset.cat][dataset.idx];
-    app.globalData.chapter = chapter;
-    app.globalData.chapters = this.data.chapters;
+    app.store.chapter = chapter;
+    app.store.chapters = this.data.chapters;
   },
   more() {
     if (this.data.descH === '58rpx') {
@@ -111,7 +113,7 @@ Page({
       for (const cate of chapters) {
         for (const chapter of cate) {
           if (chapter.pid === progress.pid) {
-            app.globalData.chapter = chapter;
+            app.store.chapter = chapter;
             break findChapter;
           }
         }
@@ -119,12 +121,12 @@ Page({
     } else {
       if (this.data.down) {
         const cateChapters = chapters[chapters.length - 1];
-        app.globalData.chapter = cateChapters[cateChapters.length - 1];
+        app.store.chapter = cateChapters[cateChapters.length - 1];
       } else {
-        app.globalData.chapter = chapters[0][0];
+        app.store.chapter = chapters[0][0];
       }
     }
-    app.globalData.chapters = this.data.chapters;
+    app.store.chapters = this.data.chapters;
     wx.navigateTo({
       url: '/pages/reader/reader',
     });

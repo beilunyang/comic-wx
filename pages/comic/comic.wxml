@@ -26,7 +26,7 @@
       漫画章节
       <image src="../../images/{{down ? 'down' : 'up'}}.svg" class="more" bindtap="sort"></image>
     </view>
-    <view wx:if="{{!chapters.length}}">暂无资源</view>
+    <view wx:if="{{!chapters.length}}" class="none">暂无资源</view>
     <view class="chapter" wx:for="{{chapters}}" wx:key="{{index}}" wx:if="{{chapters.length}}">
       <text class="cate">{{item[0].cate}}</text> 
       <view class="eps">

@@ -1,9 +1,18 @@
 import { getThemes, getSlides } from '../../api/index';
 
+import config from '../../config';
+
+const { IMG_HOST } = config;
+
 Page({
   data: {
     themes: [],
     slides: [],
+  },
+  onShareAppMessage() {
+    return {
+      title: '萌萝莉漫画部|属于绅士的漫画应用'
+    };
   },
   onLoad() {
     getThemes((err, themes) => {
@@ -15,7 +24,7 @@ Page({
       };
       themes.forEach((theme) => {
         for (const comic of theme.comics) {
-          comic.origin_cover = 'http://localhost:2333/cover' + comic.origin_cover;
+          comic.origin_cover = `${IMG_HOST}/cover${comic.origin_cover}`;
         }
       });
       this.setData({ themes });

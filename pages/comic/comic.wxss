@@ -128,6 +128,12 @@
   box-sizing: border-box;
 }
 
+.none {
+  font-size: 28rpx;
+  text-align: center;
+  padding: 40rpx 0;
+}
+
 /* TODO: comment */
 .comment-content {
   height: 100rpx;

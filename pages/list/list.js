@@ -1,6 +1,9 @@
 import { getCateComicList, search, getRecords, getCollections } from '../../api/index';
+import config from '../../config';
 
+const { IMG_HOST } = config;
 const app = getApp();
+
 Page({
   data: {
     page: 1,
@@ -40,7 +43,7 @@ Page({
         const max = Math.ceil(total / 15);
         comics.forEach((v) => {
           v.authors = v.authors.join(' / ');
-          v.origin_cover = 'http://localhost:2333/cover' + v.origin_cover;
+          v.origin_cover = `${IMG_HOST}/cover${v.origin_cover}`;
         });
         this.setData({
           comics: this.data.comics.concat(comics),
@@ -52,7 +55,7 @@ Page({
       }
       comics.forEach((v) => {
         v.authors = v.authors.join(' / ');
-        v.origin_cover = 'http://localhost:2333/cover' + v.origin_cover;
+        v.origin_cover = `${IMG_HOST}/cover${v.origin_cover}`;
       });
       this.setData({
         comics: this.data.comics.concat(comics),

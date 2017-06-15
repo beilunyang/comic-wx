@@ -1,6 +1,9 @@
 import { getImageInfo } from '../../utils/util';
 import { addRecord } from '../../api/index';
 
+import config from '../../config';
+
+const { IMG_HOST } = config;
 const app = getApp();
 
 Page({
@@ -18,15 +21,15 @@ Page({
   lock: false,
   onLoad() {
     let readerW = '';
-    const chapter = app.globalData.chapter;
-    const chapters = app.globalData.chapters;
+    const chapter = app.store.chapter;
+    const chapters = app.store.chapters;
     const origin_cover = chapters.cover;
     const { title, mid, pid } = chapter;
-    if (app.globalData.session_id) {
+    if (app.store.session_id) {
       addRecord({ title, mid, pid, origin_cover }, null, app);
     }
     const origin_images = chapter.origin_images;
-    const images = origin_images.map(v => 'http://localhost:2333' + v);
+    const images = origin_images.map(v => `${IMG_HOST}${v}`);
     const max = Math.floor(images.length / 5);
     chapter.images = images;
     wx.setNavigationBarTitle({
@@ -36,13 +39,13 @@ Page({
       max,
       chapters,
       chapter,
-      comic_title: app.globalData.comic_title,
+      comic_title: app.store.comic_title,
     });
     this.loadImages(0);
   },
   loadImages(i) {
     this.lock = true;
-    const images = app.globalData.chapter.images.slice(i * 5, ++i * 5);
+    const images = app.store.chapter.images.slice(i * 5, ++i * 5);
     const ps = [];
     for (let k = 0; k < images.length; k++) {
       const img = images[k];
@@ -77,7 +80,7 @@ Page({
   handleTap(e) {
     const dataset = e.target.dataset;
     const chapter = this.data.chapters[dataset.cat][dataset.idx];
-    app.globalData.chapter = chapter;
+    app.store.chapter = chapter;
   },
   showToolbar() {
     this.setData({
@@ -91,26 +94,26 @@ Page({
     });
   },
   prevChapter() {
-    const cp = app.globalData.chapter;
+    const cp = app.store.chapter;
     if (cp.foremost) {
       wx.showToast({
         title: '已经是第一章了',
       });
     } else {
-      app.globalData.chapter = app.globalData.chapters.nav[cp.idx-2];
+      app.store.chapter = app.store.chapters.nav[cp.idx-2];
       wx.redirectTo({
         url: '/pages/reader/reader',
       });
     }
   },
   nextChapter() {
-    const cp = app.globalData.chapter;
+    const cp = app.store.chapter;
     if (cp.latest) {
       wx.showToast({
         title: '已经是最后一章了',
       });
     } else {
-      app.globalData.chapter = this.data.chapters.nav[cp.idx];
+      app.store.chapter = this.data.chapters.nav[cp.idx];
       wx.redirectTo({
         url: '/pages/reader/reader',
       });

@@ -1,13 +1,16 @@
 import { login } from '../utils/util';
+import config from '../config';
 
-const BASE_URL = 'http://localhost:8080/api/v1';
+const { HOST } = config;
+
+const BASE_URL = `${HOST}/api/v1`;
 
 const _get = (url, cb, app) => {
     wx.request({
         url,
         method: 'GET',
         header: {
-          Authorization: app ? app.globalData.session_id : '',
+          Authorization: app ? app.store.session_id : '',
         },
         success(res) {
             console.log(res);
@@ -31,7 +34,7 @@ const _post = (url, data, cb, app) => {
     method: 'POST',
     data,
     header: {
-      Authorization: app ? app.globalData.session_id : '',
+      Authorization: app ? app.store.session_id : '',
     },
     success(res) {
       console.log(res);

@@ -1,3 +1,7 @@
+import config from '../config';
+
+const { HOST } = config;
+
 export const getImageInfo = (src, cb) => {
   return new Promise((resolve, reject) => {
     wx.getImageInfo({
@@ -14,7 +18,7 @@ export const getImageInfo = (src, cb) => {
 
 const wxlogin = (data, cb) => {
   wx.request({
-    url: 'http://localhost:8080/api/v1/wxlogin',
+    url: `${HOST}/api/v1/wxlogin`,
     method: 'POST',
     data,
     success(res) {
@@ -31,8 +35,8 @@ const wxlogin = (data, cb) => {
 };
 
 const clearLastLoginState = (app) => {
-  app.globalData.userInfo = null;
-  app.globalData.session_id = '';
+  app.store.userInfo = null;
+  app.store.session_id = '';
   wx.clearStorageSync();
 };
 
@@ -57,8 +61,8 @@ export const login = (app) => {
                   avatarUrl: res2.userInfo.avatarUrl,
                 }
                 wx.setStorageSync('userInfo', userInfo);
-                app.globalData.session_id = session_id;
-                app.globalData.userInfo = userInfo;
+                app.store.session_id = session_id;
+                app.store.userInfo = userInfo;
               } else {
                 wx.showToast({
                   title: '授权登入失败',
