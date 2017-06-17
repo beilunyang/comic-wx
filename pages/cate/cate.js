@@ -3,6 +3,9 @@ Page({
   data: {
     cates: [],
   },
+  onPullDownRefresh() {
+    this.onLoad();
+  },
   onLoad() {
     getComicCates((err, cates) => {
       if (err) {

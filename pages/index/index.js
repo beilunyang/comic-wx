@@ -11,8 +11,21 @@ Page({
   },
   onShareAppMessage() {
     return {
-      title: '萌萝莉漫画部|属于绅士的漫画应用'
+      title: '我正在使用炒鸡好用的漫画小程序|萌萝莉漫画, 里面有油腻的师姐欧~~',
+      success() {
+        wx.showToast({
+          title: '转发成功',
+        });
+      },
+      fail() {
+        wx.showToast({
+          title: '转发失败',
+        });
+      },
     };
+  },
+  onPullDownRefresh() {
+    this.onLoad();
   },
   onLoad() {
     getThemes((err, themes) => {

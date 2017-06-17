@@ -65,6 +65,9 @@ Page({
       this.lock = false;
     }, app);
   },
+  onPullDownRefresh() {
+    this.onLoad(this.options);
+  },
   onLoad(options) {
     const { cate, keyword, type } = options;
     wx.setNavigationBarTitle({

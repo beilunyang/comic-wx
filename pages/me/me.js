@@ -15,6 +15,9 @@ Page({
       total: 0,
     },
   },
+  onPullDownRefresh() {
+    this.onShow();
+  },
   onShow() {
     const session_id = app.store.session_id;
     const userInfo = app.store.userInfo;

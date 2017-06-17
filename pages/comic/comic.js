@@ -15,6 +15,25 @@ Page({
     inCollection: false,
   },
   mid: null,
+  onShareAppMessage() {
+    return {
+      title: `我正在看炒鸡好看的《${this.data.comic.title}》,果断推荐给你`,
+      path: '/pages/comic/comic',
+      success() {
+        wx.showToast({
+          title: '转发成功',
+        });
+      },
+      fail() {
+        wx.showToast({
+          title: '转发失败',
+        });
+      },
+    };
+  },
+  onPullDownRefresh() {
+    this.onLoad({ mid: this.mid });
+  },
   onLoad({ mid }) {
     this.mid = mid;
     getComic(mid, (err, comic) => {
