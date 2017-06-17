@@ -4,7 +4,7 @@
     <text class="nickname">{{nickName}}</text>
   </view>
   <view class="panel">
-    <view class="panel-header">
+    <view class="panel-header" style="{{records.length === 0 ? 'border:none;': ''}}">
       <text>最近阅读</text>
       <view class="num">{{records.length}} / 30</view>
     </view>
@@ -16,7 +16,7 @@
     </scroll-view>
   </view>
   <view class="panel">
-    <view class="panel-header">
+    <view class="panel-header" style="{{collections.comics.length === 0 ? 'border:none;': ''}}">
       <text>我的收藏</text>
       <view class="num" bindtap="more">{{collections.total}}
         <image src="../../images/more2.svg" class="more" mode="aspectFill" bindtap="more"></image>

@@ -8,6 +8,7 @@
   position: relative;
   height: 300rpx;
   overflow: hidden;
+  background-color: #f5f5f5;
 }
 
 .bg {
@@ -16,12 +17,12 @@
   right: 0;
   top: 0;
   bottom: 0;
-  filter: blur(5px);
+  filter: blur(30px);
 }
 
 .cover {
   position: absolute;
-  left: 30rpx;
+  left: 20rpx;
   top: 25rpx;
   z-index: 10;
   height: 250rpx;
@@ -33,13 +34,13 @@
 .info {
   position: absolute;
   top: 40rpx;
-  left: 260rpx;
+  left: 250rpx;
   bottom: 40rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-size: 22rpx;
-  color: #fff;
+  font-size: 26rpx;
+  color: #f5f5f5;
 }
 
 .progress {
@@ -59,27 +60,28 @@
 
 .btn-group {
   display: flex;
+  margin-top: 4rpx;
 }
 
 .btn {
-  border: 2rpx solid #fff;
-  padding: 8rpx 12rpx;
+  border: 2rpx solid #f5f5f5;
+  padding: 6rpx;
 }
 
 .btn:last-child {
-  margin-left: 20rpx;
+  margin-left: 16rpx;
 }
 
 .desc {
-  font-size: 22rpx;
+  font-size: 26rpx;
   padding: 16rpx;
   line-height: 1.6;
   overflow: hidden;
 }
 
 .more {
-  height: 30rpx;
-  width: 30rpx;
+  height: 36rpx;
+  width: 36rpx;
   float: right;
   margin: -4rpx 25rpx 10rpx 0;
 }
@@ -91,7 +93,7 @@
 }
 
 .h3 {
-  font-size: 28rpx;
+  font-size: 30rpx;
   padding: 20rpx 0;
   border-bottom: 2rpx solid #e6e6e6;
 }
@@ -103,13 +105,13 @@
 }
 
 .cate {
-  font-size: 26rpx;
+  font-size: 28rpx;
   padding: 20rpx 20rpx 0;
 }
 
 .eps {
   width: 100%;
-  font-size: 22rpx;
+  font-size: 24rpx;
   display: flex;
   flex-wrap: wrap;
   margin: 10rpx;

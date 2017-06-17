@@ -27,7 +27,7 @@
 }
 
 .nickname {
-  font-size: 28rpx;
+  font-size: 30rpx;
   margin: 20rpx 0;
   color: #fff;
 }
@@ -49,7 +49,7 @@
   justify-content: space-between;
   padding: 20rpx 10rpx;
   margin: 0 30rpx;
-  font-size: 24rpx;
+  font-size: 30rpx;
   border-bottom: 2rpx solid #e6e6e6;
 }
 
@@ -68,7 +68,7 @@
 .title {
   display: block;
   text-align: center;
-  font-size: 20rpx;
+  font-size: 26rpx;
   margin: 10rpx 0;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -87,7 +87,7 @@
   justify-content: space-between;
   padding: 20rpx 10rpx;
   margin: 0 30rpx;
-  font-size: 24rpx;
+  font-size: 30rpx;
 }
 
 .num {

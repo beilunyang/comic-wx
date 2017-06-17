@@ -26,7 +26,7 @@
 }
 
 .title {
-  font-size: 22rpx;
+  font-size: 28rpx;
   margin-top: 12rpx;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -34,17 +34,10 @@
 }
 
 .author {
-  font-size: 20rpx;
+  font-size: 26rpx;
   color: darkgrey;
   margin-top: 12rpx;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
-
-.hint {
-  padding-top: 100rpx;
-  font-size: 26rpx;
-  text-align: center;
-  color: #333;
 }

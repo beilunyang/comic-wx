@@ -1,6 +1,6 @@
 <view class="container">
     <form class="search-form">
-        <input type="search" placeholder="输入漫画名|作者" class="search" bindconfirm="search"/>      
+        <input type="text" confirm-type="search" placeholder="输入漫画名|作者" class="search" bindconfirm="search"/>      
     </form>
     <view class="cate">
         <navigator url="../list/list?cate={{item.name}}" class="cate-item" wx:for="{{cates}}" wx:key="{{item._id}}" hover-class="">

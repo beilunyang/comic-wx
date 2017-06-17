@@ -10,6 +10,10 @@ Page({
     avatarUrl: 'https://ooo.0o0.ooo/2017/05/31/592d9ac5cc253.jpg',
     nickName: '登入',
     records: [],
+    collections: {
+      comics: [],
+      total: 0,
+    },
   },
   onShow() {
     const session_id = app.store.session_id;
