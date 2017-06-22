@@ -41,3 +41,10 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+.hint {
+  padding-top: 100rpx;
+  font-size: 26rpx;
+  text-align: center;
+  color: #333;
+ }

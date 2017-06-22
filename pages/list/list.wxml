@@ -5,6 +5,6 @@
     <text class="author">作者: {{item.authors}}</text>
   </navigator>
   <view class="hint" wx:if="{{notFound}}">
-    没有找到相关少女
+    没有找到相关资源
   </view>
 </scroll-view>
